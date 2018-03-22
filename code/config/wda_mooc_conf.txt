@@ -1,0 +1,7 @@
+logtime	0
+uid	16
+sid	17
+ip	21
+region	22
+url	39
+refer	40
