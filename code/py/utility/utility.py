@@ -1,7 +1,7 @@
 #coding=utf8
 
 def load_table(table, path):
-    needed_column = [(line.split()[0], int(line.split()[1])) for line in open(path)]
+    needed_column = [(line.split()[0], int(line.split()[1])) for line in open(path).readlines() if not line.startswith('#')]
     return (table[0], table[1], needed_column)
 
 def load_conf(folder):
@@ -18,7 +18,7 @@ def load_conf(folder):
         cpath = folder + table[0] + '_conf.txt'
         configs.append(load_table(table, cpath))
     
-    folder_to_process = [line.strip() for line in open(folder_to_process_file).readlines()]
+    folder_to_process = [line.strip() for line in open(folder_to_process_file).readlines() if not line.startswith('#')]
     return configs, folder_to_process
 
 def read_single(columns, file):
