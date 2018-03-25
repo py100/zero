@@ -1,3 +1,4 @@
+#! python2
 #coding=utf8
 
 def load_table(table, path):
@@ -44,7 +45,7 @@ def save_to_file(data, dest_path, dest):
     out = open(dest, 'w')
     for row in data:
         tr = [word.encode('utf-8') for word in row]
-        out.write('\t'.join(tr)+'\n')
+        out.write(('\t'.join(tr)).strip() + '\n')
     out.close()
     print dest, 'saved'
 
@@ -65,7 +66,10 @@ def datafilter(table, folder, basepath):
     dest_file = basepath + folder + '_filtered/' + table[0] + '.txt'
     print 'ready to read and filter', path
     x = read_and_filtering(table[2], path, dest_path, dest_file)
-    
+
+def read_formated_file(path = '', ch = '\t'):
+    print 'reading file', path
+    return [line.split(ch) for line in open(path).readlines()]
 
 def main():
     tables, folder_to_process = load_conf('../../config/')

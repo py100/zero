@@ -1,0 +1,5 @@
+lesson_id	0
+term_id	6
+chapter_id	7
+content_type	8
+content_id	9

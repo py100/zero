@@ -1,0 +1,11 @@
+moc_post_id	0
+type	3
+lesson_unit_id	4
+forum_id	5
+root_forum_id	6
+term_id	7
+poster_id	8
+post_time	9
+count_browse	19
+count_reply	20
+count_vote	21

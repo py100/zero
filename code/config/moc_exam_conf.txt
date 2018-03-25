@@ -1,0 +1,5 @@
+moc_exam_id	0
+term_id	6
+avg_score	9
+total_score	10
+submit_count	12

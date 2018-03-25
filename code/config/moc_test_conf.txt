@@ -1,0 +1,10 @@
+moc_test_id	0
+test_time	6
+test_type	10
+term_id	11
+chapter_id	12
+deadline	13
+sub_total_score	14
+obj_total_score	15
+avg_score	18
+exam_id	19

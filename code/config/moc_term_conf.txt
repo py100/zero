@@ -1,0 +1,7 @@
+term_id	0
+course_id	3
+start_time	4
+end_time	6
+qualified_count	23
+excellent_count	24
+enroll_count	25
