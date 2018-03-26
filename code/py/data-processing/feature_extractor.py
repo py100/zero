@@ -29,7 +29,7 @@ OUTPUT_FOLDER = u'output'
 def getcode(wda, term_list):
     for term in term_list:
         if int(wda[0]) >= int(term[2]) and int(wda[0]) <= int(term[3]):
-            return term[0]
+            return wda[1] + term[0]
     else:
         return '-1'
 
@@ -38,24 +38,37 @@ def extract(folder):
     users_list = read_formated_file(folder + FILE_USER_TAG_VALUE)
     user_dict = dict()
     for row in users_list:
+        # User(userid, courseid, termid)
         user = User(row[0], row[4], row[5])
         user_dict[user.hash()] = user
-        #for term in term_list:
-        #    if term[0] == user.termid:
-        #        ret.append(load_user_wda(user, term[2], term[3], folder))
-        #        break
-    
+    print 'total dict len is', len(users_list)
+
     wdas = read_formated_file(folder + FILE_WDA)
-    ttt = []
-    for wda in wdas:
-        code = getcode(wda, term_list)
+    lessons = read_formated_file(folder + FILE_LESSON)
+    
+    # for key in user_dict:
+    #     print key
+
+    for row_wda in wdas:
+        code = getcode(row_wda, term_list)
+        # print code
         if code == '-1':
             continue
-        if code not in ttt:
-            ttt.append(code)
-        # wda_record = analyse_wda(wda)
-        # user_dict[code].update(wda_record)
-    print ttt
+        if code in user_dict:
+            wda = Wda(row_wda)
+            user_dict[code].update(wda)
+
+    print len(user_dict)
+    counter = 0
+    for key in user_dict:
+        if user_dict[key].__str__() != '':
+            print user_dict[key]
+            counter = counter + 1
+    print counter
+    out = open('out.txt', 'w')
+    for key in user_dict:
+        out.write(user_dict[key].generate_feature().strip() + '\n')
+    out.close()
 
     """
     fout = open(folder + OUTPUT_FOLDER + '/' + 'features.txt')
