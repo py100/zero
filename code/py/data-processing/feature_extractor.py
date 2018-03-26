@@ -62,12 +62,12 @@ def extract(folder):
     counter = 0
     for key in user_dict:
         if user_dict[key].__str__() != '':
-            print user_dict[key]
+            # print user_dict[key]
             counter = counter + 1
     print counter
     out = open('out.txt', 'w')
     for key in user_dict:
-        out.write(user_dict[key].generate_feature().strip() + '\n')
+        out.write(user_dict[key].userid + ' ' + user_dict[key].generate_feature().strip() + '\n')
     out.close()
 
     """

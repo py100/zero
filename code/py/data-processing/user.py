@@ -2,6 +2,8 @@
 #coding=utf8
 
 from wda import *
+from action import *
+
 
 class User:
     def __init__(self, userid, courseid, termid):
@@ -37,16 +39,14 @@ class User:
         other_action.sort()
         all_action = video_action + test_action + exam_action + other_action
         all_action.sort()
-        
-        """
         # generate feature
         # x1 : total time spend on mooc
-        x1 = cal_time(all_actions)
+        x1 = cal_time(all_action)
         # x6 : total time spend on videos
         x6 = cal_time(video_action)
         # x7 : total time spend on other resources
         x7 = cal_time(other_action)
-        """
+        return str(x1) + ' ' + str(x6) + ' ' + str(x7)
 
     def __str__(self):
         if len(self.do_exam_actions) == 0:
