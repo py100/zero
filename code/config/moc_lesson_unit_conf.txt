@@ -1,0 +1,6 @@
+moc_lesson_unit_id	0
+lesson_id	5
+chapter_id	6
+term_id	7
+content_type	8
+content_id	9

@@ -1,0 +1,7 @@
+moc_reply_id	0
+replyer_id	3
+content	6
+count_vote	7
+count_comment	8
+forum_id	14
+term_id	15

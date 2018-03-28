@@ -1,0 +1,2 @@
+post_detail_id	0
+content	3

@@ -1,0 +1,4 @@
+moc_forum_id	0
+term_id	5
+parent_id	6
+type	8

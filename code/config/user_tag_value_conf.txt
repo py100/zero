@@ -1,0 +1,7 @@
+userid	0
+sex	3
+region	4
+last_action	5
+course_id	6
+term_id	7
+select_time	8

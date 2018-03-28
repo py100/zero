@@ -1,2 +1,15 @@
-#wda_mooc	41
+user_tag_value	9
 moc_course	27
+moc_term	40
+moc_lesson	10
+moc_lesson_unit	11
+moc_test	23
+moc_exam	13
+moc_forum	15
+moc_post	25
+moc_post_detail	4
+moc_reply	17
+moc_comment	17
+moc_mutual_evaluate	10
+moc_mutual_evaluate_detail	5
+#wda_mooc	41

@@ -1,0 +1,14 @@
+[]x1 Total time spent on all resources
+[]x2 Number of distinct problems attempted
+[]x3 Number of submissions
+[]x4 Number of distinct correct problems
+[]x5 Average number of submissions per problem
+[]x6 Ratio of total time spent to number of distinct correct problems
+[]x7 Ratio of number of problems attempted to number of distinct correct problems
+[]x8 Duration of longest observed event
+[]x9 Total time spent on lecture resources
+[]x10 Total time spent on book resources
+[]x11 Total time spent on wiki resources
+[]x12 Number of correct submissions
+[]x13 Percentage of the total submissions that were correct
+[]x14 Average time between a problem submission and problem due date

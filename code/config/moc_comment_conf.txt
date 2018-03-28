@@ -1,0 +1,8 @@
+moc_comment_id	0
+commentor_id	3
+post_id	5
+reply_id	6
+content	7
+count_vote	8
+forum_id	14
+term_id	15
