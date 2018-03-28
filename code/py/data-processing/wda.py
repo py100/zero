@@ -43,8 +43,4 @@ class Wda:
         # type 3 : exam
         # type 10 : other
         self.type, self.content = get_wda_type(self.url)
-        if self.content == '':
-            print 'vvvvvvvvvvvvvvvvvvvvv'
-            print self.url
-            print '^^^^^^^^^^^^^^^^^^^^^'
 

@@ -3,6 +3,7 @@
 
 import sys
 from user import *
+from test import *
 sys.path.append('..')
 from utility.utility import *
 
@@ -45,7 +46,8 @@ def extract(folder):
 
     wdas = read_formated_file(folder + FILE_WDA)
     lessons = read_formated_file(folder + FILE_LESSON)
-    
+    raw_tests = read_formated_file(folder + FILE_TEST)
+    tests = [Test(row) for row in raw_tests]
     # for key in user_dict:
     #     print key
 
@@ -65,9 +67,10 @@ def extract(folder):
             # print user_dict[key]
             counter = counter + 1
     print counter
-    out = open('out.txt', 'w')
+    out = open('feature.out', 'w')
     for key in user_dict:
-        out.write(user_dict[key].userid + ' ' + user_dict[key].generate_feature().strip() + '\n')
+        ret = map(str, user_dict[key].generate_feature(tests))
+        out.write(str(user_dict[key].userid) + '\t' + '\t'.join(ret) + '\n')
     out.close()
 
     """

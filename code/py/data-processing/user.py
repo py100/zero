@@ -3,7 +3,7 @@
 
 from wda import *
 from action import *
-
+from test import *
 
 class User:
     def __init__(self, userid, courseid, termid):
@@ -28,7 +28,7 @@ class User:
     def load_data(self, wda_list):
         pass
     
-    def generate_feature(self):
+    def generate_feature(self, test_list):
         video_action = [Action(wda) for wda in self.learn_video_actions]
         video_action.sort()
         test_action = [Action(wda) for wda in self.do_test_actions]
@@ -42,11 +42,40 @@ class User:
         # generate feature
         # x1 : total time spend on mooc
         x1 = cal_time(all_action)
+        # x2 : unique tests tried
+        x2 = unique_test(test_action)
+        # x3 : count of tests submit
+        x3 = len(test_action)
+        # x4 : avg submit of test
+        if x2 != 0:
+            x4 = x3 * 1.0 / x2
+        else:
+            x4 = 0
+        # x5 : max duration of study
+        x5 = max_duration(all_action)
         # x6 : total time spend on videos
         x6 = cal_time(video_action)
         # x7 : total time spend on other resources
         x7 = cal_time(other_action)
-        return str(x1) + ' ' + str(x6) + ' ' + str(x7)
+        # x8 : avg time between test_ddl and submit time
+        x8 = cal_avg_interval_ddl(test_action, test_list)
+        # x0 : 0 for drop out, 1 for finish
+        x0 = 0
+        if len(exam_action):
+            x0 = 1
+        else:
+            x0 = 0
+        ret = []
+        ret.append(x1)
+        ret.append(x2)
+        ret.append(x3)
+        ret.append(x4)
+        ret.append(x5)
+        ret.append(x6)
+        ret.append(x7)
+        ret.append(x8)
+        ret.append(x0)
+        return ret
 
     def __str__(self):
         if len(self.do_exam_actions) == 0:
@@ -65,3 +94,4 @@ class User:
     
     def hash(self):
         return self.userid + self.termid
+
