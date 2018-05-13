@@ -8,7 +8,7 @@ sys.path.append('..')
 from utility.utility import *
 
 BASE_DATA_DIR = u'C:/Users/poore/Desktop/毕设/data/2016-11-01'
-FOLDERS = [u'20001_filtered']
+FOLDERS = [u'20001_filtered', u'21011_filtered', u'43002_filtered', u'45002_filtered']
 FILE_COMMENT = u'moc_comment.txt'
 FILE_COURSE = u'moc_course.txt'
 FILE_EXAM = u'moc_exam.txt'
@@ -47,7 +47,8 @@ def extract(folder):
     wdas = read_formated_file(folder + FILE_WDA)
     lessons = read_formated_file(folder + FILE_LESSON)
     raw_tests = read_formated_file(folder + FILE_TEST)
-    tests = [Test(row) for row in raw_tests]
+    raw_terms = read_formated_file(folder + FILE_TERM)
+    tests = [Test(row, raw_terms) for row in raw_tests]
     # for key in user_dict:
     #     print key
 
@@ -67,24 +68,24 @@ def extract(folder):
             # print user_dict[key]
             counter = counter + 1
     print counter
-    out = open('feature.out', 'w')
+    ret = []
     for key in user_dict:
-        ret = map(str, user_dict[key].generate_feature(tests))
-        out.write(str(user_dict[key].userid) + '\t' + '\t'.join(ret) + '\n')
-    out.close()
+        tmp = map(str, user_dict[key].generate_feature(tests))
+        ret.append(str(user_dict[key].userid) + '\t' + '\t'.join(tmp) + '\n')
+    return ret
 
-    """
-    fout = open(folder + OUTPUT_FOLDER + '/' + 'features.txt')
-    for feature in ret:
-        fout.write(feature)
-    fout.close()
-    """
+def writeFile(data, f):
+    out = open(f, 'w')
+    for line in data:
+        out.write(line)
+    out.close()
 
 def main():
     # a = readfile(FOLDERS[0], FILE_EXAM)
     # print a
     for folder in FOLDERS:
-        extract(BASE_DATA_DIR + '/' + folder + '/')
+        ret = extract(BASE_DATA_DIR + '/' + folder + '/')
+        writeFile(ret, '../data-analyse/'+ folder + '.out')
 
 if __name__ == '__main__':
     main()

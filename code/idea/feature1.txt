@@ -1,0 +1,18 @@
+[wda]x1 总在线时间
+[作业log] 尝试的不同作业数
+[作业log] 作业平均提交数
+[作业log] 作业平均得分
+[测验log] 尝试的不同测验数
+[测验log] 测验平均提交数
+[测验log] 测验平均得分
+
+[wda]x8 最长连续活跃时间
+[wda+视频log] 观看的视频个数/总视频个数
+[视频log] 观看的视频时长/视频总时长(不包括没观看的视频)
+
+[]x10 book resources
+[]x11 wiki resources
+
+[讨论内容] 讨论区贡献值 (py's law)
+[wda]x14 avg time between ddl and submission
+[考试log] 考试成绩

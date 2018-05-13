@@ -44,3 +44,7 @@ __pycache__/
 *.exe
 *.out
 *.app
+
+
+# temp file
+*.result
