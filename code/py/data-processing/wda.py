@@ -29,6 +29,15 @@ def get_wda_type(str):
             else:
                 break
         return '3', ret
+    elif 'examObject?eid=' in str:
+        str = str.split('examObject?eid=')[1]
+        ret = ''
+        for ch in str:
+            if ch >= '0' and ch <= '9':
+                ret = ret + ch
+            else:
+                break
+        return '3', ret
     else:
         return '-1', '-1'
 
