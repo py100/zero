@@ -54,7 +54,7 @@ class Test:
         self.obj_total_score = tmp[7]
         self.avg_score = tmp[8]
         self.exam_id = tmp[9]
-    
+
     def useful(self):
         tp = int(self.test_type)
         if tp > 1 and tp < 6:
@@ -72,7 +72,7 @@ class Exam:
         self.avg_score = tmp[2]
         self.total_score = tmp[3]
         self.submit_count = tmp[4]
-    
+
     def getFullScore(self):
         return float(self.total_score)
 

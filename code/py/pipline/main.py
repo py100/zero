@@ -6,9 +6,9 @@ import ut
 import helper
 from feature_pipline import fpipline
 
-MODE = 'develop'
+# MODE = 'develop'
 # MODE = 'test'
-# MODE = 'run'
+MODE = 'run'
 
 SOURCE_FOLDER = u'd:/BaiduYunDownload/课程源数据/'
 RESEARCH_FILE = SOURCE_FOLDER + 'mooc_research.txt'
@@ -30,6 +30,7 @@ def featurepipline(courseID):
     fpip = fpipline(courseID, om)
     fpip.init()
     fpip.extract()
+    fpip.calrate()
     fpip.save()
     om.runtimel('successful finish feature-pipline for ' + courseID)
 
@@ -44,7 +45,7 @@ def main():
             format(len(folderToProcess), folderToProcess.__str__()))
 
     if MODE == 'develop':
-        folderToProcess = folderToProcess[0:2]
+        folderToProcess = folderToProcess[0:1]
     elif MODE == 'test':
         folderToProcess = folderToProcess[0:2]
 

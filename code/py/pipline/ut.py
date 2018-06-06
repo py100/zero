@@ -72,7 +72,6 @@ def readMerge(folder, om):
     om.runtimel('finish read and merge ' + folder)
     return data
 
-        
 
 def columnFilter(folder, om):
     om.runtimel('starting filtering ' + folder)
@@ -89,7 +88,7 @@ def columnFilter(folder, om):
                     tmp.append(line[index])
                 f.write('\t'.join(tmp) + '\n')
 
-    wdafile = folder + '/wda_mooc_' + courseID + '.txt' 
+    wdafile = folder + '/wda_mooc_' + courseID + '.txt'
     data = []
     with open(wdafile, encoding='utf-8') as f:
         for line in f.readlines():
